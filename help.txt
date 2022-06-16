@@ -1,0 +1,14 @@
+1. Instalar virtualenv en el sistema:
+#python pip install virtualenv
+
+2. Crear el virtualenv:
+https://platzi.com/discusiones/1104-python/82392-tengo-sistema-operativo-windows-y-tengo-python3-tengo-problemas-con-el-comando-virtualenv-venv-me-sale-lo-siguiente-virtualenv-no-se/
+
+3. Dar permisos al entorno virtual:
+https://www.cdmon.com/es/blog/la-ejecucion-de-scripts-esta-deshabilitada-en-este-sistema-te-contamos-como-actuar
+
+4. Actualizar pip:
+#python.exe -m pip install --upgrade pip
+
+5. Instalar Flask:
+#pip install flask flask_mysqldb
