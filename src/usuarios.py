@@ -17,7 +17,7 @@ conexion = MySQL(app)
 def listar_usuarios():
     try:
         cursor = conexion.connection.cursor()
-        sql = "SELECT usuarios.id, usuarios.nombre, usuarios.paswd, roles.rol, estado.estado FROM usuarios JOIN roles ON usuarios.rol = roles.id JOIN estado ON usuarios.id_estado = estado.id ORDER BY usuarios.id;"
+        sql = "SELECT usuarios.id_usuario, usuarios.nombre, usuarios.paswd, roles.rol, estado.estado FROM usuarios JOIN roles ON usuarios.rol = roles.id_rol JOIN estado ON usuarios.id_estado = estado.id_estado ORDER BY usuarios.id_usuario;"
         cursor.execute(sql)
         datos = cursor.fetchall()
         usuarios = []
@@ -34,7 +34,7 @@ def listar_usuarios():
 def leer_usuarios_bd(codigo):
     try:
         cursor = conexion.connection.cursor()
-        sql = "SELECT usuarios.id, usuarios.nombre, usuarios.paswd, roles.rol, estado.estado FROM usuarios JOIN roles ON usuarios.rol = roles.id JOIN estado ON usuarios.id_estado = estado.id WHERE usuarios.id = '{0}'".format(
+        sql = "SELECT usuarios.id_usuario, usuarios.nombre, usuarios.paswd, roles.rol, estado.estado FROM usuarios JOIN roles ON usuarios.rol = roles.id_rol JOIN estado ON usuarios.id_estado = estado.id_estado WHERE usuarios.id_usuario = '{0}'".format(
             codigo)
         cursor.execute(sql)
         datos = cursor.fetchone()
@@ -74,7 +74,7 @@ def registrar_usuario():
             cursor.execute(sql)
             # Confirma la acción de inserción.
             conexion.connection.commit()
-            return jsonify({'mensaje': "Curso registrado.", 'exito': True})
+            return jsonify({'mensaje': "Usuario registrado.", 'exito': True})
         except Exception as ex:
             return jsonify({'mensaje': "Error", 'exito': False})
     else:
