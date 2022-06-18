@@ -50,7 +50,7 @@ def leer_usuarios_bd(codigo):
 
 # ruta para listar el usuario por id desde end-point
 @app.route('/usuarios/<codigo>', methods=['GET'])
-def leer_curso(codigo):
+def leer_usuario(codigo):
     try:
         usuario = leer_usuarios_bd(codigo)
         if usuario != None:
@@ -68,9 +68,8 @@ def registrar_usuario():
     if (validar_codigo(request.json['codigo']) and validar_nombre(request.json['nombre'])):
         try:
             cursor = conexion.connection.cursor()
-            sql = """INSERT INTO usuarios (codigo, nombre, creditos) 
-                VALUES ('{0}', '{1}', {2})""".format(request.json['codigo'],
-                                                     request.json['nombre'], request.json['creditos'])
+            sql = """INSERT INTO usuarios (nombre, paswd, rol, id_estado) 
+                VALUES ('{0}', '{1}', {2}, {3})""".format(request.json['nombre'], request.json['contrasenia'], request.json['rol'], request.json['estado'])
             cursor.execute(sql)
             # Confirma la acción de inserción.
             conexion.connection.commit()

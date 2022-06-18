@@ -15,3 +15,9 @@ https://www.cdmon.com/es/blog/la-ejecucion-de-scripts-esta-deshabilitada-en-este
 
 6. Instalar Flask:
 #pip install flask flask_mysqldb
+
+7. Iniciar el entorno virtial: 
+#.\env\Scripts\activate
+
+8. Ejecutar el Script de Python:
+#python .\src\usuarios.py
