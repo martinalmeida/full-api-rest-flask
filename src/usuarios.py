@@ -65,11 +65,11 @@ def leer_usuario(codigo):
 @app.route('/usuarios', methods=['POST'])
 def registrar_usuario():
 
-    if (validar_codigo(request.json['codigo']) and validar_nombre(request.json['nombre'])):
+    if (validar_nombre(request.json['nombre'])):
         try:
             cursor = conexion.connection.cursor()
             sql = """INSERT INTO usuarios (nombre, paswd, rol, id_estado) 
-                VALUES ('{0}', '{1}', {2}, {3})""".format(request.json['nombre'], request.json['contrasenia'], request.json['rol'], request.json['estado'])
+                VALUES ('{0}', '{1}', {2}, {3})""".format(request.json['nombre'], request.json['pass'], request.json['rol'], request.json['estado'])
             cursor.execute(sql)
             # Confirma la acción de inserción.
             conexion.connection.commit()
@@ -80,39 +80,41 @@ def registrar_usuario():
         return jsonify({'mensaje': "Parámetros inválidos...", 'exito': False})
 
 
-@app.route('/cursos/<codigo>', methods=['PUT'])
-def actualizar_curso(codigo):
-    if (validar_codigo(codigo) and validar_nombre(request.json['nombre'])):
+# ruta para actualizar usuario en la base de datos via metodo PUT HTTPS
+@app.route('/usuarios/<codigo>', methods=['PUT'])
+def actualizar_usuarios(codigo):
+    if (validar_nombre(request.json['nombre'])):
         try:
-            curso = leer_usuarios_bd(codigo)
-            if curso != None:
+            usuarios = leer_usuarios_bd(codigo)
+            if usuarios != None:
                 cursor = conexion.connection.cursor()
-                sql = """UPDATE curso SET nombre = '{0}', creditos = {1} 
-                WHERE codigo = '{2}'""".format(request.json['nombre'], request.json['creditos'], codigo)
+                sql = """UPDATE usuarios SET nombre = '{0}', paswd = '{1}', rol = {2}, id_estado = {3} 
+                WHERE id_usuario = {4} """.format(request.json['nombre'], request.json['pass'], request.json['rol'], request.json['estado'], codigo)
                 cursor.execute(sql)
                 # Confirma la acción de actualización.
                 conexion.connection.commit()
-                return jsonify({'mensaje': "Curso actualizado.", 'exito': True})
+                return jsonify({'mensaje': "Usuario actualizado.", 'exito': True})
             else:
-                return jsonify({'mensaje': "Curso no encontrado.", 'exito': False})
+                return jsonify({'mensaje': "Usuario no encontrado.", 'exito': False})
         except Exception as ex:
             return jsonify({'mensaje': "Error", 'exito': False})
     else:
         return jsonify({'mensaje': "Parámetros inválidos...", 'exito': False})
 
 
-@app.route('/cursos/<codigo>', methods=['DELETE'])
-def eliminar_curso(codigo):
+# ruta de eliminar registro en la base de datos via metodo DELETE HTTPS
+@app.route('/usuarios/<codigo>', methods=['DELETE'])
+def eliminar_usuarios(codigo):
     try:
-        curso = leer_usuarios_bd(codigo)
-        if curso != None:
+        usuarios = leer_usuarios_bd(codigo)
+        if usuarios != None:
             cursor = conexion.connection.cursor()
-            sql = "DELETE FROM curso WHERE codigo = '{0}'".format(codigo)
+            sql = "DELETE FROM usuarios WHERE id_usuario = {0} ".format(codigo)
             cursor.execute(sql)
             conexion.connection.commit()  # Confirma la acción de eliminación.
-            return jsonify({'mensaje': "Curso eliminado.", 'exito': True})
+            return jsonify({'mensaje': "Usuario eliminado.", 'exito': True})
         else:
-            return jsonify({'mensaje': "Curso no encontrado.", 'exito': False})
+            return jsonify({'mensaje': "Usuario no encontrado.", 'exito': False})
     except Exception as ex:
         return jsonify({'mensaje': "Error", 'exito': False})
 

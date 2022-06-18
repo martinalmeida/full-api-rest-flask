@@ -21,3 +21,11 @@ https://www.cdmon.com/es/blog/la-ejecucion-de-scripts-esta-deshabilitada-en-este
 
 8. Ejecutar el Script de Python:
 #python .\src\usuarios.py
+
+9. Template POST resgistrar nuevo registro via JSON HTTPS REQUEST
+{
+    "nombre": "martin",
+    "pass": "1234",
+    "rol": 1,
+    "estado": 1
+} 
