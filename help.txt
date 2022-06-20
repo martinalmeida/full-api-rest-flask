@@ -1,4 +1,4 @@
-1. Cambiar ruta de usuario al iniciar el repositorio en .\env\pyvenv.cfg 
+1. Cambiar ruta de proyecto al iniciar el repositorio en .\env\pyvenv.cfg 
 home = C:\Users\USUARIO_A_CAMBIAR\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0
 
 2. Instalar virtualenv en el sistema:

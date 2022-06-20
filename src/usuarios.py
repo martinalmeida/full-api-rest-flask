@@ -7,7 +7,8 @@ from validaciones import *
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/cursos/*": {"origins": "http://localhost"}})
+# Cors activados para el consumo desde js app cliente
+CORS(app, resources={r"/usuarios/*": {"origins": "http://localhost"}})
 
 conexion = MySQL(app)
 
@@ -65,7 +66,7 @@ def leer_usuario(codigo):
 @app.route('/usuarios', methods=['POST'])
 def registrar_usuario():
 
-    if (validar_nombre(request.json['nombre'])):
+    if (validar_nombre_usuario(request.json['nombre'])):
         try:
             cursor = conexion.connection.cursor()
             sql = """INSERT INTO usuarios (nombre, paswd, rol, id_estado) 
@@ -83,7 +84,7 @@ def registrar_usuario():
 # ruta para actualizar usuario en la base de datos via metodo PUT HTTPS
 @app.route('/usuarios/<codigo>', methods=['PUT'])
 def actualizar_usuarios(codigo):
-    if (validar_nombre(request.json['nombre'])):
+    if (validar_nombre_usuario(request.json['nombre'])):
         try:
             usuarios = leer_usuarios_bd(codigo)
             if usuarios != None:
@@ -120,7 +121,7 @@ def eliminar_usuarios(codigo):
 
 
 def pagina_no_encontrada(error):
-    return "<h1> Ruta inaccessible en API ☹</h1>", 404
+    return "<h1> Ruta inaccessible en API ☹ </h1>", 404
 
 
 if __name__ == '__main__':
