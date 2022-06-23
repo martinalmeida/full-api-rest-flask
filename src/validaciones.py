@@ -16,12 +16,18 @@ def validar_nombre_paciente(nombre: str) -> bool:
 
 
 # Valida el documento en la cantidad de caracteres
-def validar_documento(nombre: str) -> bool:
-    nombre = nombre.strip()
-    return (len(nombre) > 0 and len(nombre) <= 20)
+def validar_documento(documento: str) -> bool:
+    documento = documento.strip()
+    return (len(documento) > 0 and len(documento) <= 20)
 
 
 # Valida el celular en la cantidad de caracteres
-def validar_celular(nombre: str) -> bool:
-    nombre = nombre.strip()
-    return (len(nombre) > 0 and len(nombre) <= 10)
+def validar_celular(celular: str) -> bool:
+    celular = celular.strip()
+    return (len(celular) > 0 and len(celular) <= 10)
+
+
+# Valida el nombre del montura en el la cantidad de caracteres
+def validar_montura(montura: str) -> bool:
+    montura = montura.strip()
+    return (len(montura) > 0 and len(montura) <= 50)
