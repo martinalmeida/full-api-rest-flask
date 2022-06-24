@@ -23,9 +23,9 @@ def listar_pacientes():
         datos = cursor.fetchall()
         pacientes = []
         for fila in datos:
-            curso = {'id': fila[0],
-                     'nombres': fila[1], 'apellidos': fila[2], 'tipoDocumento': fila[3], 'documento': fila[4], 'fechaNacimiento': fila[5], 'celular': fila[6], 'whatsapp': fila[7], 'usuario': fila[8], 'estado': fila[9]}
-            pacientes.append(curso)
+            data = {'id': fila[0],
+                    'nombres': fila[1], 'apellidos': fila[2], 'tipoDocumento': fila[3], 'documento': fila[4], 'fechaNacimiento': fila[5], 'celular': fila[6], 'whatsapp': fila[7], 'usuario': fila[8], 'estado': fila[9]}
+            pacientes.append(data)
         return jsonify({'pacientes': pacientes, 'mensaje': "pacientes listados.", 'exito': True})
     except Exception as ex:
         return jsonify({'mensaje': "Error", 'exito': False})

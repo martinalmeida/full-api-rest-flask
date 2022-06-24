@@ -23,9 +23,9 @@ def listar_monturas():
         datos = cursor.fetchall()
         montura = []
         for fila in datos:
-            curso = {'id': fila[0], 'nombre': fila[1],
-                     'descripcion': fila[2]}
-            montura.append(curso)
+            data = {'id': fila[0], 'nombre': fila[1],
+                    'descripcion': fila[2]}
+            montura.append(data)
         return jsonify({'monturas': montura, 'mensaje': "Monturas listados.", 'exito': True})
     except Exception as ex:
         return jsonify({'mensaje': "Error", 'exito': False})

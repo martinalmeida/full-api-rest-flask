@@ -1,15 +1,18 @@
+from datetime import datetime
+
+
 # Valida el código (si es numérico y de longitud 6).
 def validar_codigo(codigo: str) -> bool:
     return (codigo.isnumeric() and len(codigo) == 6)
 
 
-# Valida el nombre del usuario en el la cantidad de caracteres
+# Valida el nombre del usuario en la cantidad de caracteres
 def validar_nombre_usuario(nombre: str) -> bool:
     nombre = nombre.strip()
     return (len(nombre) > 0 and len(nombre) <= 50)
 
 
-# Valida el nombre del paciente en el la cantidad de caracteres
+# Valida el nombre del paciente en la cantidad de caracteres
 def validar_nombre_paciente(nombre: str) -> bool:
     nombre = nombre.strip()
     return (len(nombre) > 0 and len(nombre) <= 100)
@@ -27,13 +30,27 @@ def validar_celular(celular: str) -> bool:
     return (len(celular) > 0 and len(celular) <= 10)
 
 
-# Valida el nombre del montura en el la cantidad de caracteres
+# Valida el nombre del montura en la cantidad de caracteres
 def validar_montura(montura: str) -> bool:
     montura = montura.strip()
     return (len(montura) > 0 and len(montura) <= 50)
 
 
-# Valida el nombre del sintoma en el la cantidad de caracteres
+# Valida el nombre del sintoma en la cantidad de caracteres
 def validar_sintoma(sintoma: str) -> bool:
     sintoma = sintoma.strip()
     return (len(sintoma) > 0 and len(sintoma) <= 50)
+
+
+# Valida el formato de fecha
+def validar_fecha(fecha: str) -> bool:
+    try:
+        return datetime.strptime(fecha, '%Y-%m-%d')
+    except ValueError:
+        return False
+
+
+# Valida el valor de cotizacion en la cantidad de caracteres
+def validar_valor(sintoma: str) -> bool:
+    sintoma = sintoma.strip()
+    return (len(sintoma) > 0 and len(sintoma) <= 10)

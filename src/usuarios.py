@@ -23,9 +23,9 @@ def listar_usuarios():
         datos = cursor.fetchall()
         usuarios = []
         for fila in datos:
-            curso = {'id': fila[0], 'nombre': fila[1],
-                     'contrasenia': fila[2], 'rol': fila[3], 'estado': fila[4]}
-            usuarios.append(curso)
+            data = {'id': fila[0], 'nombre': fila[1],
+                    'contrasenia': fila[2], 'rol': fila[3], 'estado': fila[4]}
+            usuarios.append(data)
         return jsonify({'usuarios': usuarios, 'mensaje': "usuarios listados.", 'exito': True})
     except Exception as ex:
         return jsonify({'mensaje': "Error", 'exito': False})

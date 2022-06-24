@@ -23,9 +23,9 @@ def listar_sintomas():
         datos = cursor.fetchall()
         sintomas = []
         for fila in datos:
-            curso = {'id': fila[0], 'nombre': fila[1],
-                     'descripcion': fila[2]}
-            sintomas.append(curso)
+            data = {'id': fila[0], 'nombre': fila[1],
+                    'descripcion': fila[2]}
+            sintomas.append(data)
         return jsonify({'sintomas': sintomas, 'mensaje': "sintomas listados.", 'exito': True})
     except Exception as ex:
         return jsonify({'mensaje': "Error", 'exito': False})
