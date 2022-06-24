@@ -31,3 +31,9 @@ def validar_celular(celular: str) -> bool:
 def validar_montura(montura: str) -> bool:
     montura = montura.strip()
     return (len(montura) > 0 and len(montura) <= 50)
+
+
+# Valida el nombre del sintoma en el la cantidad de caracteres
+def validar_sintoma(sintoma: str) -> bool:
+    sintoma = sintoma.strip()
+    return (len(sintoma) > 0 and len(sintoma) <= 50)
