@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-AddHandler application/x-httpd-ea-php72 .php .php7 .phtml
+AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-d
