@@ -51,6 +51,12 @@ def validar_fecha(fecha: str) -> bool:
 
 
 # Valida el valor de cotizacion en la cantidad de caracteres
-def validar_valor(sintoma: str) -> bool:
-    sintoma = sintoma.strip()
-    return (len(sintoma) > 0 and len(sintoma) <= 10)
+def validar_valor(cotizacion: str) -> bool:
+    cotizacion = cotizacion.strip()
+    return (len(cotizacion) > 0 and len(cotizacion) <= 10)
+
+
+# Valida el valor de distancia en la cantidad de caracteres
+def validar_distancia(distancia: str) -> bool:
+    distancia = distancia.strip()
+    return (len(distancia) > 0 and len(distancia) <= 50)
