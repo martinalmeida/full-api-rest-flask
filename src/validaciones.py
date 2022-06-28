@@ -1,11 +1,6 @@
 from datetime import datetime
 
 
-# Valida el código (si es numérico y de longitud 6).
-def validar_codigo(codigo: str) -> bool:
-    return (codigo.isnumeric() and len(codigo) == 6)
-
-
 # Valida el nombre del usuario en la cantidad de caracteres
 def validar_nombre_usuario(nombre: str) -> bool:
     nombre = nombre.strip()
