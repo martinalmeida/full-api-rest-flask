@@ -42,6 +42,7 @@ class template
             <!-- Style.css -->
             <link rel="stylesheet" type="text/css" href="assets/css/style.css">
             <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         </head>
 
         <body>
@@ -49,15 +50,11 @@ class template
         return ob_get_clean();
     }
 
-    static public function startBody()
+    static public function startBody($usuario)
     {
         ob_start();
         ?>
-            <div class="fixed-button">
-                <a href="https://codedthemes.com/item/gradient-able-admin-template" target="_blank" class="btn btn-md btn-primary">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
-                </a>
-            </div>
+
             <!-- Pre-loader start -->
             <div class="theme-loader">
                 <div class="loader-track">
@@ -86,8 +83,8 @@ class template
                                         </div>
                                     </div>
                                 </div>
-                                <a href="index.html">
-                                    <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                                <a href="./inicio">
+                                    OPTICA SAN ANGEL <i class="fa-solid fa-glasses"></i>
                                 </a>
                                 <a class="mobile-options">
                                     <i class="ti-more"></i>
@@ -115,75 +112,17 @@ class template
                                     </li>
                                 </ul>
                                 <ul class="nav-right">
-                                    <li class="header-notification">
-                                        <a href="#!">
-                                            <i class="ti-bell"></i>
-                                            <span class="badge bg-c-pink"></span>
-                                        </a>
-                                        <ul class="show-notification">
-                                            <li>
-                                                <h6>Notifications</h6>
-                                                <label class="label label-danger">New</label>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <img class="d-flex align-self-center img-radius" src="assets/images/avatar-2.jpg" alt="Generic placeholder image">
-                                                    <div class="media-body">
-                                                        <h5 class="notification-user">John Doe</h5>
-                                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                        <span class="notification-time">30 minutes ago</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg" alt="Generic placeholder image">
-                                                    <div class="media-body">
-                                                        <h5 class="notification-user">Joseph William</h5>
-                                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                        <span class="notification-time">30 minutes ago</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <img class="d-flex align-self-center img-radius" src="assets/images/avatar-3.jpg" alt="Generic placeholder image">
-                                                    <div class="media-body">
-                                                        <h5 class="notification-user">Sara Soudein</h5>
-                                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                        <span class="notification-time">30 minutes ago</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
 
                                     <li class="user-profile header-notification">
                                         <a href="#!">
-                                            <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                            <span>John Doe</span>
+                                            <i class="fa-solid fa-user fa-2x"></i>
+                                            <span><?= $usuario ?></span>
                                             <i class="ti-angle-down"></i>
                                         </a>
                                         <ul class="show-notification profile-notification">
                                             <li>
-                                                <a href="#!">
-                                                    <i class="ti-settings"></i> Settings
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="user-profile.html">
-                                                    <i class="ti-user"></i> Profile
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="auth-lock-screen.html">
-                                                    <i class="ti-lock"></i> Lock Screen
-                                                </a>
-                                            </li>
-                                            <li>
                                                 <a href="auth-normal-sign-in.html">
-                                                    <i class="ti-layout-sidebar-left"></i> Logout
+                                                    <i class="ti-layout-sidebar-left"></i> Salir
                                                 </a>
                                             </li>
                                         </ul>
@@ -198,170 +137,67 @@ class template
                                 <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                                 <div class="pcoded-inner-navbar main-menu">
 
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Principal</div>
                                     <ul class="pcoded-item pcoded-left-item">
                                         <li class="active">
-                                            <a href="index.html">
-                                                <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                            <a href="./inicio">
+                                                <span class="pcoded-micon"><i class="ti-home"></i>I</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.dash.main">Inicio</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class="pcoded-hasmenu">
-                                            <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Components</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class=" ">
-                                                    <a href="accordion.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Accordion</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="breadcrumb.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Breadcrumbs</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="button.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Button</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="tabs.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Tabs</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="color.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Color</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="label-badge.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Label Badge</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="tooltip.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Tooltip</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="typography.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Typography</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="notification.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Notification</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="icon-themify.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Themify</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
 
-                                            </ul>
+                                        <li>
+                                            <a href="./pacientes">
+                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>P</b></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pacientes</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
                                         </li>
+
+                                        <li>
+                                            <a href="./historias">
+                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>HC</b></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Historia Clinica</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="./formulas">
+                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>F</b></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Formulas</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
                                     </ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div>
+
+                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Contabilidad</div>
                                     <ul class="pcoded-item pcoded-left-item">
                                         <li>
-                                            <a href="form-elements-component.html">
-                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
+                                            <a href="./cotizacion">
+                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>C</b></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Cotización</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="bs-basic-table.html">
-                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
+                                            <a href="./facturas">
+                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>F</b></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Facturas</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
 
                                     </ul>
 
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
-                                    <ul class="pcoded-item pcoded-left-item">
-                                        <li>
-                                            <a href="chart.html">
-                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="map-google.html">
-                                                <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class="pcoded-hasmenu">
-                                            <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Pages</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class=" ">
-                                                    <a href="auth-normal-sign-in.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Login</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="auth-sign-up.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Register</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="sample-page.html">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>
-
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Other</div>
+                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Parametrizacion</div>
                                     <ul class="pcoded-item pcoded-left-item">
                                         <li class="pcoded-hasmenu ">
                                             <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Menu Levels</span>
+                                                <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>M</b></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Más</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                             <ul class="pcoded-submenu">
